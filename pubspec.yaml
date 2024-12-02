@@ -60,6 +60,7 @@ dev_dependencies:
 flutter:
   assets:
      - assets/wakewords/ばったりいただき_ja_android_v3_0_0.ppn
+     - assets/wakewords/ばったりごちそう_ja_android_v3_0_0.ppn
      - assets/wakewords/
      - .env
 

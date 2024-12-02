@@ -12,13 +12,20 @@ final porcupineManagerProvider = FutureProvider<PorcupineManager>((ref) async {
   final detectedNum = ref.watch(detectedNumberProvider.notifier);
 
   void _detectedCallback(int keywordIndex) {
+    if (keywordIndex == 0) {
+      print('start'); // ばったりいただき
+    } else if (keywordIndex == 1) {
+      print('stop'); // ばったりごちそう
+    }
     detectedNum.state = true;
-    print('detected');
   }
 
   _manager = await PorcupineManager.fromKeywordPaths(
     accessKey,
-    ["assets/wakewords/ばったりいただき_ja_android_v3_0_0.ppn"],
+    [
+      "assets/wakewords/ばったりいただき_ja_android_v3_0_0.ppn", // キーワード1
+      "assets/wakewords/ばったりごちそう_ja_android_v3_0_0.ppn", // キーワード2
+    ],
     _detectedCallback,
     modelPath: 'assets/wakewords/porcupine_params_ja.pv',
   );
